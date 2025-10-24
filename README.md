@@ -1,16 +1,12 @@
-# Розмір масиву
+# Створення та заповнення масиву 7x7
 n = 7
+array = [[0 for _ in range(n)] for _ in range(n)]
 
-# Створюємо порожній масив 7x7, заповнений нулями
-matrix = [[0] * n for _ in range(n)]
-
-# Заповнюємо масив за зразком
 for i in range(n):
     for j in range(n):
-        # Значення зменшується при віддаленні від верхнього лівого кута
-        value = n - max(i, j)
-        matrix[i][j] = value if value > 0 else 0
+        value = n - 1 - max(i, j)
+        array[i][j] = max(value, 0)
 
-# Виводимо масив у зручному вигляді
-for row in matrix:
-    print(*row)
+# Виведення масиву
+for row in array:
+    print(' '.join(str(elem) for elem in row))
