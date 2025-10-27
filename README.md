@@ -1,12 +1,18 @@
-# Створення та заповнення масиву 7x7
+# Варіант 2 — створення двовимірного масиву 7x7 за зразком із рисунка
+
 n = 7
-array = [[0 for _ in range(n)] for _ in range(n)]
+matrix = [[0]*n for _ in range(n)]
 
 for i in range(n):
     for j in range(n):
-        value = n - 1 - max(i, j)
-        array[i][j] = max(value, 0)
+        value = n - i - j
+        if value > 0:
+            matrix[i][j] = value
+        else:
+            matrix[i][j] = 0
 
-# Виведення масиву
-for row in array:
-    print(' '.join(str(elem) for elem in row))
+print("Двовимірний масив 7x7:")
+for row in matrix:
+    for elem in row:
+        print(f"{elem:3}", end="")
+    print()
